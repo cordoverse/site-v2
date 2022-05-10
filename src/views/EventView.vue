@@ -38,7 +38,7 @@
                 </v-card-text>
               </v-card>
             </v-col>
-            <v-col cols="12">
+            <v-col v-if="!isMobile" cols="12">
               <v-card class="backgroundDark">
                 <v-card-text class="d-flex justify-center align-center">
                   <img
@@ -51,7 +51,7 @@
                 </v-card-text>
               </v-card>
             </v-col>
-            <v-col cols="12">
+            <v-col v-if="!isMobile" cols="12">
               <v-card class="backgroundDark">
                 <GmapMap
                   :center="{ lat: -31.4130179, lng: -64.188848 }"
@@ -89,7 +89,14 @@
                 </v-card-title>
                 <v-card-text>
                   <v-row>
-                    <v-col cols="6" lg="4" md="4" sm="4" v-for="(sponsor, i) in event.sponsors" :key="i">
+                    <v-col
+                      cols="6"
+                      lg="4"
+                      md="4"
+                      sm="4"
+                      v-for="(sponsor, i) in event.sponsors"
+                      :key="i"
+                    >
                       <img
                         style="min-width: 100px"
                         :src="require('@/assets/images/' + sponsor.imageUrl)"
@@ -144,6 +151,44 @@
                 </v-card-actions>
               </v-card></v-col
             >
+            <v-col v-if="isMobile" cols="12">
+              <v-card class="backgroundDark">
+                <v-card-text class="d-flex justify-center align-center">
+                  <img
+                    class="mr-8"
+                    style="max-height: 50px"
+                    src="@/assets/images/poap.svg"
+                    alt=""
+                  />
+                  <h4>Este evento incluye un POAP!</h4>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col v-if="isMobile" cols="12">
+              <v-card class="backgroundDark">
+                <GmapMap
+                  :center="{ lat: -31.4130179, lng: -64.188848 }"
+                  :zoom="11"
+                  map-type-id="terrain"
+                  style="width: 100%; height: 250px"
+                  class="event-map"
+                  :options="{
+                    zoomControl: true,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    streetViewControl: false,
+                    rotateControl: false,
+                    fullscreenControl: true,
+                    disableDefaultUi: false,
+                  }"
+                >
+                  <GmapMarker
+                    :position="event.venue.coordinates"
+                    :clickable="true"
+                  />
+                </GmapMap>
+              </v-card>
+            </v-col>
           </v-row>
         </v-col>
       </v-row>
@@ -243,6 +288,11 @@ export default {
         ],
       },
     };
+  },
+  computed: {
+    isMobile() {
+      return this.$vuetify.breakpoint.mobile;
+    },
   },
   components: { BannerCommon },
   mounted() {

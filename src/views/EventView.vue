@@ -97,11 +97,13 @@
                       v-for="(sponsor, i) in event.sponsors"
                       :key="i"
                     >
-                      <img
-                        style="min-width: 100px"
-                        :src="require('@/assets/images/' + sponsor.imageUrl)"
-                        alt=""
-                      />
+                      <a :href="sponsor.url" target="_blank">
+                        <img
+                          style="min-width: 100px"
+                          :src="require('@/assets/images/' + sponsor.imageUrl)"
+                          alt=""
+                        />
+                      </a>
                     </v-col>
                   </v-row>
                 </v-card-text>
@@ -218,26 +220,37 @@ export default {
           {
             name: "IbexPay",
             imageUrl: "sponsors/ibex-pay.png",
+            url: "https://ibexmercado.com/",
           },
           {
             name: "Paydece",
             imageUrl: "sponsors/paydece.png",
+            url: "https://paydece.io/",
           },
           {
             name: "Bitlogic",
             imageUrl: "sponsors/bitlogic.png",
+            url: "https://www.bitlogic.io/",
           },
           {
             name: "Defy Education",
             imageUrl: "sponsors/defy-education.png",
+            url: "https://www.defyeducation.com/",
           },
           {
             name: "Capy Army",
             imageUrl: "sponsors/capy-army.png",
+            url: "https://twitter.com/capyarmy",
           },
           {
             name: "Zeta Chain",
             imageUrl: "sponsors/zeta-chain.png",
+            url: "https://www.zetachain.com/",
+          },
+          {
+            name: "CTF Capital",
+            imageUrl: "sponsors/ctf-capital.png",
+            url: "https://www.ctf.capital/",
           },
         ],
         events: [

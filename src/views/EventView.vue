@@ -252,6 +252,11 @@ export default {
             imageUrl: "sponsors/ctf-capital.png",
             url: "https://www.ctf.capital/",
           },
+          {
+            name: "CashCow Protocol",
+            imageUrl: "sponsors/cashcow.png",
+            url: "https://cashcowprotocol.com/",
+          },
         ],
         events: [
           {

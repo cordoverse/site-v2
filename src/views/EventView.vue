@@ -257,6 +257,11 @@ export default {
             imageUrl: "sponsors/cashcow.png",
             url: "https://cashcowprotocol.com/",
           },
+          {
+            name: "Kalei Ventures",
+            imageUrl: "sponsors/kalei.png",
+            url: "https://www.kaleiventures.com/",
+          },
         ],
         events: [
           {
